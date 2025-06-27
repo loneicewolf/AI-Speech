@@ -1,4 +1,4 @@
-# MADE BY CODEX
+# MADE BY CODEX - not done yet! 
 # AI-Speech
 
 A simple toolkit for recording your speech, transcribing it with [Whisper](https://github.com/openai/whisper), analyzing common disfluencies, and generating tips to improve fluency. It is intended as an experimental learning project and **not** a replacement for professional therapy.
