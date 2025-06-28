@@ -1,4 +1,5 @@
 # MADE BY CODEX - not done yet! 
+- CHANGES: `req file: from shipser to STANDALONE COMMAND:   pip install -U openai-whisper   ` https://github.com/openai/whisper
 # AI-Speech
 
 A simple toolkit for recording your speech, transcribing it with [Whisper](https://github.com/openai/whisper), analyzing common disfluencies, and generating tips to improve fluency. It is intended as an experimental learning project and **not** a replacement for professional therapy.
