@@ -1,18 +1,18 @@
-"""Audio transcription utilities using Whisper."""
-
-from typing import Dict, Any
-
-# Whisper may require heavy compute; using the small model by default.
-import whisper
+##	OLD VERSION	"""Audio transcription utilities using Whisper."""
+##	OLD VERSION	
+##	OLD VERSION	from typing import Dict, Any
+##	OLD VERSION	
+##	OLD VERSION	# Whisper may require heavy compute; using the small model by default.
+##	OLD VERSION	import whisper
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # -------------------------------------- #
-## inside transcribe.py
-# MODEL_NAME = "small"
-# MODEL_NAME = "medium" Not tested yet
-MODEL_NAME="medium.en" # ENGLISH ONLY
-# -------------------------------------- #
+##	OLD VERSION	## inside transcribe.py
+##	OLD VERSION	# MODEL_NAME = "small"
+##	OLD VERSION	# MODEL_NAME = "medium" Not tested yet
+##	OLD VERSION	MODEL_NAME="medium.en" # ENGLISH ONLY
+##	OLD VERSION	# -------------------------------------- #
 
 # copy from the Whisper DOCS
 
@@ -33,15 +33,48 @@ MODEL_NAME="medium.en" # ENGLISH ONLY
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 
 
-def transcribe_audio(audio_path: str) -> Dict[str, Any]:
-    """Transcribe the given audio file using OpenAI's Whisper.
+# old version
+#	def transcribe_audio(audio_path: str) -> Dict[str, Any]:
+#	    """Transcribe the given audio file using OpenAI's Whisper.
+#	
+#	    Args:
+#	        audio_path: Path to the WAV file.
+#	
+#	    Returns:
+#	        A dictionary with the transcript text and timestamps.
+#	    """
+#	    model = whisper.load_model(MODEL_NAME)
+#	    result = model.transcribe(audio_path)
+#	    return result
+
+
+
+
+
+
+
+
+
+"""Audio transcription utilities using Whisper."""
+
+from typing import Dict, Any
+import whisper
+
+# Default model (safe fallback)
+MODEL_NAME = "medium.en"
+
+def transcribe_audio(audio_path: str, model_name: str = MODEL_NAME) -> Dict[str, Any]:
+    """
+    Transcribe audio from file using a Whisper model.
 
     Args:
-        audio_path: Path to the WAV file.
+        audio_path: Path to the audio file (.wav, .mp3, etc.)
+        model_name: Which Whisper model to use (tiny, base, small, medium, large)
 
     Returns:
-        A dictionary with the transcript text and timestamps.
+        The full transcription result dictionary.
     """
-    model = whisper.load_model(MODEL_NAME)
+    model = whisper.load_model(model_name)
     result = model.transcribe(audio_path)
     return result
+
